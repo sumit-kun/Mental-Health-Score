@@ -1,5 +1,5 @@
 // ---------- Config ----------
-const API_BASE_URL = 'http://127.0.0.1:2468';
+const API_BASE_URL = 'https://mental-health-score-1-9rln.onrender.com';
 const PREDICT_ENDPOINT = `${API_BASE_URL}/predict`;
 
 // Assumed display range for the gauge only (visual approximation, not a hard backend contract)
