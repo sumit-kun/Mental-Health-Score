@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Wellbeing Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Left intro panel -->
+  <aside class="intro">
+    <div class="intro-content">
+      <p class="kicker">A quiet check-in</p>
+      <h1>How's your balance<br>with the scroll?</h1>
+      <p class="intro-copy">
+        Answer a few honest questions about your day &mdash; your platforms, your hours,
+        your sleep &mdash; and get a quick read on how it's adding up.
+      </p>
+
+      <svg class="wave" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path id="wavePath" d="M0,60 C40,20 80,100 120,60 C160,20 200,100 240,60 C280,20 300,60 320,60"
+          stroke="url(#waveGradient)" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <defs>
+          <linearGradient id="waveGradient" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8A7FBA"/>
+            <stop offset="1" stop-color="#2E9E8F"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <p class="footnote">
+        Built on a model trained from student survey data. This is an estimate for
+        reflection, not a diagnosis &mdash; if you're struggling, please talk to someone you trust.
+      </p>
+    </div>
+  </aside>
+
+  <!-- Right form / result panel -->
+  <main class="panel">
+
+    <form id="predictForm" class="form" novalidate>
+
+      <section class="field-group">
+        <h2 class="group-title">About you</h2>
+
+        <div class="row row-3">
+          <div class="field">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="Age" min="10" max="100" placeholder="20" required />
+          </div>
+
+          <div class="field">
+            <label>Gender</label>
+            <div class="segmented" data-name="Gender" data-required="true">
+              <button type="button" class="seg-btn" data-value="Male">Male</button>
+              <button type="button" class="seg-btn" data-value="Female">Female</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="Country" list="countryList" placeholder="India" autocomplete="off" required />
+            <datalist id="countryList">
+              <option value="India"></option>
+              <option value="USA"></option>
+              <option value="Canada"></option>
+              <option value="Australia"></option>
+              <option value="UK"></option>
+              <option value="Germany"></option>
+              <option value="Mexico"></option>
+              <option value="Turkey"></option>
+              <option value="France"></option>
+              <option value="Other"></option>
+            </datalist>
+          </div>
+        </div>
+      </section>
+
+      <section class="field-group">
+        <h2 class="group-title">Study &amp; platform</h2>
+
+        <div class="row row-3">
+          <div class="field">
+            <label for="academicLevel">Academic level</label>
+            <select id="academicLevel" name="Academic_Level" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="High School">High School</option>
+              <option value="Undergraduate">Undergraduate</option>
+              <option value="Postgraduate">Postgraduate</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="platform">Most used platform</label>
+            <select id="platform" name="Most_Used_Platform" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Facebook</option>
+              <option>LinkedIn</option>
+              <option>Instagram</option>
+              <option>Snapchat</option>
+              <option>Twitter</option>
+              <option>YouTube</option>
+              <option>TikTok</option>
+              <option>LINE</option>
+              <option>KakaoTalk</option>
+              <option>VKontakte</option>
+              <option>WhatsApp</option>
+              <option>WeChat</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="purpose">Main purpose of use</label>
+            <select id="purpose" name="Purpose_Of_Use" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="Networking">Networking</option>
+              <option value="Education">Education</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="News">News</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="field-group">
+        <h2 class="group-title">Your daily rhythm</h2>
+
+        <div class="sliders">
+          <div class="slider-field">
+            <div class="slider-label">
+              <label for="usageHours">Average daily social media usage</label>
+              <span class="slider-value"><span id="usageHoursVal">3</span> hrs</span>
+            </div>
+            <input type="range" id="usageHours" name="Avg_Daily_Usage_Hours" min="0" max="24" step="0.5" value="3" />
+          </div>
+
+          <div class="slider-field">
+            <div class="slider-label">
+              <label for="studyHours">Study hours</label>
+              <span class="slider-value"><span id="studyHoursVal">4</span> hrs</span>
+            </div>
+            <input type="range" id="studyHours" name="Study_Hours" min="0" max="24" step="0.5" value="4" />
+          </div>
+
+          <div class="slider-field">
+            <div class="slider-label">
+              <label for="activityHours">Physical activity</label>
+              <span class="slider-value"><span id="activityHoursVal">1</span> hrs</span>
+            </div>
+            <input type="range" id="activityHours" name="Physical_Activity_Hours" min="0" max="24" step="0.5" value="1" />
+          </div>
+
+          <div class="slider-field">
+            <div class="slider-label">
+              <label for="sleepHours">Sleep per night</label>
+              <span class="slider-value"><span id="sleepHoursVal">7</span> hrs</span>
+            </div>
+            <input type="range" id="sleepHours" name="Sleep_Hours_Per_Night" min="0" max="24" step="0.5" value="7" />
+          </div>
+        </div>
+
+        <div class="row row-2 unlocks-row">
+          <div class="field">
+            <label for="unlocks">Phone unlocks per day</label>
+            <input type="number" id="unlocks" name="Daily_Unlocks" min="0" placeholder="45" required />
+          </div>
+
+          <div class="field">
+            <label>Stress level lately</label>
+            <div class="segmented segmented-4" data-name="Stress_Level" data-required="true">
+              <button type="button" class="seg-btn" data-value="Low">Low</button>
+              <button type="button" class="seg-btn" data-value="Medium">Medium</button>
+              <button type="button" class="seg-btn" data-value="High">High</button>
+              <button type="button" class="seg-btn" data-value="Very High">Very High</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <p id="formError" class="form-error" hidden></p>
+
+      <button type="submit" id="submitBtn" class="submit-btn">
+        <span class="btn-label">See my score</span>
+        <span class="btn-spinner" hidden aria-hidden="true"></span>
+      </button>
+    </form>
+
+    <!-- Result view -->
+    <div id="resultView" class="result" hidden>
+      <p class="result-kicker">Here's what the numbers suggest</p>
+
+      <div class="gauge-wrap">
+        <svg class="gauge" viewBox="0 0 220 130" aria-hidden="true">
+          <path class="gauge-track" d="M20,120 A90,90 0 0 1 200,120" />
+          <path class="gauge-fill" id="gaugeFill" d="M20,120 A90,90 0 0 1 200,120" />
+        </svg>
+        <div class="gauge-score">
+          <span id="scoreValue">0</span>
+          <span class="gauge-sub">est. score</span>
+        </div>
+      </div>
+
+      <p id="resultMessage" class="result-message"></p>
+      <p class="result-caveat">This reflects patterns in survey data only — it isn't a clinical assessment.</p>
+
+      <button type="button" id="restartBtn" class="ghost-btn">Check again</button>
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
